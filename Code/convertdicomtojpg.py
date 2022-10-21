@@ -10,21 +10,25 @@ Original file is located at
 from google.colab import drive
 drive.mount('/content/drive')
 
+#installation of pynet for DICOM images
 !pip install -U pynetdicom
 
+#import the packages
 import numpy as np
 import pydicom as dicom
 from PIL import Image
 
+#assigned the image path
 #img_path = '/content/drive/MyDrive/DAEN690/000ae00eb3942d27e0b97903dd563a6e.dicom'
 img_path = '/content/drive/MyDrive/DAEN690/000d68e42b71d3eac10ccc077aba07c1.dicom'
 
+#Rescaling the image to convert to JPG
 im = dicom.dcmread(img_path)
 im = im.pixel_array.astype(float)
 
 rescaled_image = (np.maximum(im, 0)/im.max())*255
 final_image = np.uint8(rescaled_image)
-
+#Conversion to JPG image
 final_image = Image.fromarray(final_image)
 final_image.show()
 final_image.save('/content/drive/MyDrive/DAEN690/test.jpg')
