@@ -13,13 +13,15 @@ drive.mount('/content/drive')
 target_folder = '/content/drive/MyDrive/DAEN690/XMLOutput'
 image_src = '/content/drive/MyDrive/DAEN690/images'
 
+#listing out all the files
 !ls '/content/drive/MyDrive/DAEN690/'
 
+#import the packages
 import os
 import pandas as pd #Data manipulation
 import numpy as np #Data manipulation
 import cv2 # For image size information
-
+#read the train CSV file
 df = pd.read_csv ('/content/drive/MyDrive/DAEN690/train2.csv')
 print(df)
 
