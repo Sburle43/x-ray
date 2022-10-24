@@ -1,6 +1,6 @@
 # Course: DAEN 690 Fall 2022
 # Team: Team Xray
-__Team Xray provides the detection of disease conditions in the Chest Xray.
+__Team Xray provides the detection of disease conditions in the Chest Xray.__
 
 ## Project Title: DETECTION OF CHEST X-RAY ABNORMALITIES USING DICOM IMAGES
 ## Organization: Accure, Inc.
