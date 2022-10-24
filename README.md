@@ -19,4 +19,4 @@ The dataset consists of 18,000 Postero-anterior (PA) view CXR scans that come wi
 The background of the disease conditions are shown in the bar chart with 15 classes including the 'No Finding' class.(https://github.com/Sburle43/x-ray/blob/main/Code/LungXRayBarChart.ipynb)
 ## Data Analysis:
 We downloaded the corresponding csv-formatted annotation file and DICOM-formatted images from Kaggle and uploaded the dataset to the Hopper Cluster server environment on GMU's supercomputer to extract the images from the compressed zip file. The images were converted to JPG format and saved into a different folder after being input into our Python code in our project space. We downloaded the files using our client computers, and then we transferred them to the Google Colab environment for further analysis. For training and testing, the images are separated into two folders.
--Process of DICOM images to JPG
+* Process of DICOM images to JPG
