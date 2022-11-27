@@ -29,19 +29,16 @@ The implementation code consisted of the following steps which was repeated for 
 The purpose of this script is to convert all the DICOM images are converted into JPG format. The script uses two folder settings, one for DICOM input folder location and another for JPG output location. Each file from the input location is read and pydicom library method dcmread is called to get the pixel content which is then rescaled to 0 to 255 RGB scale. The pixel stream is then saved as JPG file and redirected to the output folder location.  (https://github.com/Sburle43/x-ray/blob/main/Code/convertdicomtojpg.py)
 
   Primary Input: DICOM files (Sample files included in the xray/Data/DICOM folder)
-  
   Primary Output: JPG Files (Samples files included in the xray/Data/JPG folder)
 
 * Convert CSV to XML:
 The Kaggle annotation file was imported into Google Colab and used as input by our scripts, which used the csv annotation file to create an XML file for each image. The next step was to import the XML files and the JPG image files into another Python program to create the TF Records needed for the modeling stage. This dataset reads TFRecords as bytes directly from the files, just as they were written. There is no independent parsing or decoding performed by TFRecordDataset.  (https://github.com/Sburle43/x-ray/blob/main/Code/csvtoxml.py)
 
   Primary Input: csv Annotation file (Source Kaggle Link shared in the xray/Data/Annotation(XML) folder)
-  
   Primary Output: JPG Files (Samples files shared in the xray/Data/Annotation(XML) folder)
 
 * Merge XML Annotations with JPG Image files to generate TF Records:
 This python script is where the XML Annotations are merged with the corresponding Image files in Google Colab development environment to generate TF Records. Placeholder settings include the main root folder, a folder location where all the images reside, a TF output folder to which the output TF Records would be sent upon execution. The function create_trainval_list can be invoked if all available image files should be included in the TF Record creation. If there's a selective list of images only (subset of full list), an alternate is available. A "trainval_Model8.txt" setting can be used to pass to the function create_tf. The create_tf function also takes two other paramters, the folder location where XML annotations are found, and a class dictionary file path. The class dictionary is a file with extension pbtxt that contains a list of all classes and class IDs. The main function calls the tf_create function once each to generate train and validation files under separate sub-folders under the tf_output folder after randomizing the input images and segmenting in 80/20 split. After executing this script, the resultant TF Record files in the in the train and val folders are uploaded into modeling platforms for executing deep learning models. (https//github.com/Sburle43/x-ray/blob/main/Code/tf_creation_model8.py)
 
   Primary Input: JPG Image Files (Sample Files shared in the xray/Data/JPG folder) + XML Annotation Files (Samples files shared in the xray/Data/Annotation(XML) folder)
-  
   Primary Output: TF RECORD Files (Samples files shared in the xray/Data/TFRecord folder)
