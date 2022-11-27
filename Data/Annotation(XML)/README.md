@@ -1,0 +1,1 @@
+This folder contains the sample XML Annotation files created from the Annotation file downloaded from Kaggle (csv) format. The csv file was post processed to inclued only those images that were selected for each model configuration alternative built for the project.
